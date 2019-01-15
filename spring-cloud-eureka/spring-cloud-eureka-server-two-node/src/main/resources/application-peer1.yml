@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: spring-cloud-eureka-server-two-node
+server:
+  port: 8072
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    registerWithEureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://peer2:8073/eureka-server/
