@@ -1,0 +1,16 @@
+server:
+  port: 8060
+eureka:
+  client:
+    # 声明是否将自己的信息注册到 Eureka 服务器上
+    registerWithEureka: true
+    # 是否到 Eureka 服务器中抓取注册信息 检索服务
+    fetch-registry: true
+    service-url:
+      # 当前服务注册到eureka 服务的服务地址
+      defaultZone: http://localhost:8000/eureka/,http://localhost:9000/eureka/
+
+#服务别名，就是注册到注册中心的标识的名称
+spring:
+  application:
+    name: spring-cloud-order

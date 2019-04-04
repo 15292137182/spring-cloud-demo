@@ -1,0 +1,28 @@
+server:
+  port: 8062
+eureka:
+  client:
+    # 声明是否将自己的信息注册到 Eureka 服务器上
+    registerWithEureka: true
+    # 是否到 Eureka 服务器中抓取注册信息 检索服务
+    fetch-registry: true
+    service-url:
+      # 当前服务注册到eureka 服务的服务地址
+      defaultZone: http://localhost:8000/eureka/,http://localhost:9000/eureka/
+
+  # 心跳检测与续约时间
+  # 测试时将值设置小些，保证服务关闭后注册中心能及时的剔除该服务
+  instance:
+    #Eureka 客户端向服务端发送心跳的时间间隔，单位为秒（客户端告诉服务端自己会按照该规则）
+    lease-renewal-interval-in-seconds: 1
+    # Eureka 服务端在收到最后一次心跳之后的等待时间上限，单位为秒，超时则剔除（客户端告诉服务端自己会按照该规则）
+    lease-expiration-duration-in-seconds: 2
+
+#服务别名，就是注册到注册中心的标识的名称
+spring:
+  application:
+    name: spring-cloud-api-order-impl
+
+#spring cloud 默认开启支持ribbon
+#设置feign客户端的超时时间
+#ri

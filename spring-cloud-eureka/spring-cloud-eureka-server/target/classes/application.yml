@@ -1,14 +1,21 @@
 server:
-  port: 8071
+  port: 8000
+# 服务在启动时，会把自己当做一个 Eureka 客户端去注册到 Eureka 服务器上，且从服务器上拉取信息
+# 而该服务本身就是一个 Eureka 服务器
 eureka:
   instance:
     hostname: localhost
-
+  server:
+    #测试时关闭自我保护机制，保证不可用服务及时剔除
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 2000
   client:
+    # 声明是否将自己的信息注册到 Eureka 服务器上
     registerWithEureka: false
+    # 是否到 Eureka 服务器中抓取注册信息
     fetch-registry: false
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka-server/
-spring:
-  application:
-    name: spring-cloud-eureka-server
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#spring:
+#  application:
+#    name: eureka-server

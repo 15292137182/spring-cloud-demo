@@ -1,0 +1,8 @@
+server:
+  port: 9010
+spring:
+  application:
+    name: spring-cloud-zookeeper
+  cloud:
+    zookeeper:
+      connect-string: 120.78.161.231:2181
