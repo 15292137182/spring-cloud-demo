@@ -18,4 +18,9 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 #spring:
 #  application:
-#    name: eureka-server
+#    name: eureka
+#    设置eureka 访问密码
+#  security:
+#    user:
+#      name: admin
+#      password: admin123

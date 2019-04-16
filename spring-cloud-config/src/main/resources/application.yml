@@ -1,0 +1,27 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: config-server
+#    从本地获取文件必须设置为 native，从git获取则不需要配置profiles
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+#        从本地获取文件
+        native:
+          search-locations: classpath:/supplier-server
+#        配置从git库获取配置文件
+#        git:
+#          uri: http://192.168.1.85/config-server/config-server.git
+#          username: config
+#          password: config123
+#          search-paths: /test-config/*,/app-config/*
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:admin123@localhost:8000/eureka
+

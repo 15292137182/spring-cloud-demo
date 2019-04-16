@@ -24,6 +24,7 @@
         <module>spring-cloud-member</module>
         <module>spring-cloud-zookeeper</module>
         <module>spring-cloud-service-parent</module>
+        <module>spring-cloud-config</module>
     </modules>
 
     <properties>
